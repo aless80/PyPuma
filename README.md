@@ -3,7 +3,8 @@ Implementation of the Puma algorithm. Python code based on the Panda implementat
 
 ## TODO
 Review formulas  
-Review Results on the bottom of this README
+Review Results on the bottom of this README  
+Figure
 
 ## Table of Contents
 * [Links to literature](#links-to-literature)
