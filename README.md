@@ -1,5 +1,5 @@
 ## Description
-Based on pypanda from [https://github.com/QuackenbushLab/pypanda](https://github.com/QuackenbushLab/pypanda) and [https://github.com/davidvi/pypanda](https://github.com/davidvi/pypanda).  
+Implementation of the Puma algorithm. Python code based on the Panda implementation pypanda from [https://github.com/QuackenbushLab/pypanda](https://github.com/QuackenbushLab/pypanda) and [https://github.com/davidvi/pypanda](https://github.com/davidvi/pypanda).  
   
 ## Table of Contents
 * [Links to literature](#links-to-literature)
@@ -27,7 +27,7 @@ _Marieke Lydia Kuijjer, Matthew Tung,GuoCheng Yuan,John Quackenbush, Kimberly Gl
 
 LIONESS can be used to estimate single-sample networks using aggregate networks made with any network reconstruction algorithm (http://arxiv.org/pdf/1505.06440.pdf).
 
-## Panda algorithm
+## Puma algorithm
 To find agreement between the three input networks first the responsibility (R) is calculated.  
 
 <img src="img/responsibility.png" height="30">  
@@ -56,7 +56,7 @@ Hamming distance is calculated every iteration.
 
 
 ## Installation
-PyPanda runs on both Python 2.7 and Python 3.4. We recommend the following commands to install PyPuma on UNIX systems:
+PyPuma runs on both Python 2.7 and Python 3.4. We recommend the following commands to install PyPuma on UNIX systems:
 #### Using  a virtual environment
 Using [python virtual environments](http://docs.python-guide.org/en/latest/dev/virtualenvs/) is the cleanest installation method. 
 
@@ -114,7 +114,6 @@ PyPuma can be run directly from the terminal with the following options:
 ```
 To run PyPuma on toy data:
 ```
-python run_panda.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -o output_panda.txt
 python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -o output_puma.txt -i ./ToyData/ToyMiRList.txt
 ```
 To reconstruct a single sample Lioness Pearson correlation network:
@@ -125,41 +124,39 @@ PyPuma -e ToyData/ToyExpressionData.txt -o output_puma_pearson.txt -q output_lio
 Fire up your python shell or ipython notebook. 
 Import the classes in the PyPuma library:
 ```python
-from PyPuma.puma import Panda
+from PyPuma.puma import Puma
 ```
-Run the Panda or Puma algorithms, leave out motif and PPI data to use Pearson correlation network:
+Run the Puma algorithm, leave out motif and PPI data to use Pearson correlation network:
 ```python
-panda_obj = Panda('ToyData/ToyExpressionData.txt', 'ToyData/ToyMotifData.txt', 'ToyData/ToyPPIData.txt', remove_missing=False)
 puma_obj = Puma('ToyData/ToyExpressionData.txt', 'ToyData/ToyMotifData.txt', 'ToyData/ToyPPIData.txt','ToyData/ToyMiRList.txt')
 ```
 Save the results:
 ```python
-panda_obj.save_panda_results('Toy_Panda.pairs.txt')
-panda_obj.save_panda_results('Toy_Puma.pairs.txt')
+puma_obj.save_puma_results('Toy_Puma.pairs.txt')
 ```
 Return a network plot:
 
 ```python
-panda_obj.top_network_plot(top=100, file='top_100_genes.png')
+puma_obj.top_network_plot(top=100, file='top_100_genes.png')
 ```
 <!--
 or
 ```python
-from PyPuma.analyze_panda import AnalyzePanda
-plot = AnalyzePanda(panda_obj)
+from PyPuma.analyze_puma import AnalyzePuma
+plot = AnalyzePuma(puma_obj)
 plot.top_network_plot(top=100, file='top_100_genes.png')
 ```-->
 Calculate indegrees for further analysis:
 ```python
-indegree = panda_obj.return_panda_indegree()
+indegree = puma_obj.return_puma_indegree()
 ```
 Calculate outdegrees for further analysis:
 ```python
-outdegree = panda_obj.return_panda_outdegree()
+outdegree = puma_obj.return_puma_outdegree()
 ```
 Run the Lioness algorithm for single sample networks:
 ```python
-lioness_obj = Lioness(panda_obj)
+lioness_obj = Lioness(puma_obj)
 ```
 Save Lioness results:
 ```python
@@ -180,7 +177,7 @@ However, if you plan to model gene regulatory networks on your own dataset, you 
 
 TODO 
 ```
-Example Panda output:
+Example Puma output:
 TF  Gene  Motif Force
 ---------------------
 CEBPA	AACSL	0.0	-0.951416589143
@@ -198,5 +195,5 @@ Sample1 Sample2 Sample3 Sample4
 2.39500370135	1.84608635425	2.80179804094	2.67540878165
 -0.117475863987	0.494923925853	0.0518448588965	-0.0584810456421
 
-TF, Gene and Motif order is identical to the panda output file.
+TF, Gene and Motif order is identical to the puma output file.
 ```
