@@ -2,7 +2,7 @@
 Implementation of the Puma algorithm. Python code based on the Panda implementation pypanda from [https://github.com/QuackenbushLab/pypanda](https://github.com/QuackenbushLab/pypanda) and [https://github.com/davidvi/pypanda](https://github.com/davidvi/pypanda).  
 
 ## TODO
-Review formulas
+Review formulas  
 Review Results on the bottom of this README
 
 ## Table of Contents
