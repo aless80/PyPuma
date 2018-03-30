@@ -11,6 +11,7 @@ setup(name='PyPuma',
     install_requires=['pandas',
     'numpy',
     'networkx',
-    'matplotlib'
+    'matplotlib',
+    'scipy'
     ],
     zip_safe=False)
