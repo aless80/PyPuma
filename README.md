@@ -1,12 +1,9 @@
 ## Description
-Forked from [https://github.com/QuackenbushLab/pypanda](https://github.com/QuackenbushLab/pypanda), 
-which was based on [https://github.com/davidvi/pypanda](https://github.com/davidvi/pypanda).  
-Compared to QuackenbushLab/pypanda this repository adds the Python implementation of PUMA ([run_puma.py](run_puma.py) and [pypanda/puma.py](pypanda/puma.py)). 
-NaN values in normalized matrices are replaced with values normalized by the overall z-score. This allows running the Toy Data provided in this repository.   
+Based on pypanda from [https://github.com/QuackenbushLab/pypanda](https://github.com/QuackenbushLab/pypanda) and [https://github.com/davidvi/pypanda](https://github.com/davidvi/pypanda).  
   
 ## Table of Contents
 * [Links to literature](#links-to-literature)
-* [Panda algorithm](#panda-algorithm)  
+* [Puma algorithm](#puma-algorithm)  
 * [Installation](#installation)  
 * [Usage](#usage)  
   * [Run from terminal](#run-from-terminal)
@@ -59,53 +56,53 @@ Hamming distance is calculated every iteration.
 
 
 ## Installation
-PyPanda runs on both Python 2.7 and Python 3.4. We recommend the following commands to install pypandas on UNIX systems:
+PyPanda runs on both Python 2.7 and Python 3.4. We recommend the following commands to install PyPuma on UNIX systems:
 #### Using  a virtual environment
 Using [python virtual environments](http://docs.python-guide.org/en/latest/dev/virtualenvs/) is the cleanest installation method. 
 
 Cloning git and setting up a [python virtual environment](http://docs.python-guide.org/en/latest/dev/virtualenvs/):
 ```no-highlight
 pip install --user pipenv   #Make sure you have pipenv
-git clone https://github.com/aless80/pypanda.git
-cd pypanda
-virtualenv pypandaenv #virtual environment created in a folder inside the git folder 
-source pypandaenv/bin/activate
+git clone https://github.com/aless80/PyPuma.git
+cd PyPuma
+virtualenv pypumaenv #virtual environment created in a folder inside the git folder 
+source pypumaenv/bin/activate
 ```
-Installing pypanda:
+Installing PyPuma:
 ```no-highlight
-(pypandaenv)$ pip install -r requirements.txt
-(pypandaenv)$ python setup.py install
+(pypumaenv)$ pip install -r requirements.txt
+(pypumaenv)$ python setup.py install
 ```
 
-Complete uninstall of pypanda:
+Complete uninstall of PyPuma:
 ```no-highlight
-(pypanda)$ deactivate	#Quit virtual environment
-rm -rf pypandaenv
+(pypuma)$ deactivate	#Quit virtual environment
+rm -rf pypumaenv
 TODO: write about uninstalling the setup using --record
 ```
 
 #### Using pip 
 Never use ~~sudo pip~~. Instead you can use pip on the user's install directory:
 ```no-highlight
-git clone https://github.com/aless80/pypanda.git
-cd pypanda
+git clone https://github.com/aless80/PyPuma.git
+cd PyPuma
 python setup.py install --user
-#to run from the command line you will need to make pypanda executable and add the bin directory to your PATH:
+#to run from the command line you will need to make PyPuma executable and add the bin directory to your PATH:
 cd bin
-chmod +x pypanda
+chmod +x PyPuma
 echo "$(pwd):PATH" >> ~/.bashrc
 source ~/.bashrc
 ```
-To run pypanda from Windows (tested on Windows 10) install Git (https://git-scm.com/downloads) and Anaconda Python2.7 (https://www.continuum.io/downloads) and from the Anaconda prompt run:
+To run PyPuma from Windows (not fully tested) install Git (https://git-scm.com/downloads) and Anaconda Python2.7 (https://www.continuum.io/downloads) and from the Anaconda prompt run:
 ```no-highlight
-git clone https://github.com/aless80/pypanda.git
-cd pypanda
+git clone https://github.com/aless80/PyPuma.git
+cd PyPuma
 python setup.py install
 ```
 
 ## Usage
 #### Run from terminal
-pypanda can be run directly from the terminal with the following options:
+PyPuma can be run directly from the terminal with the following options:
 ```
 -h help
 -e, --expression expression values
@@ -115,22 +112,20 @@ pypanda can be run directly from the terminal with the following options:
 -i, --mir mir data
 -r, --rm_missing
 ```
-To run pypanda on toy data:
+To run PyPuma on toy data:
 ```
 python run_panda.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -o output_panda.txt
 python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -o output_puma.txt -i ./ToyData/ToyMiRList.txt
 ```
 To reconstruct a single sample Lioness Pearson correlation network:
 ```
-pypanda -e ToyData/ToyExpressionData.txt -o output_puma_pearson.txt -q output_lioness_pearson.txt
+PyPuma -e ToyData/ToyExpressionData.txt -o output_puma_pearson.txt -q output_lioness_pearson.txt
 ```
 #### Run from python
 Fire up your python shell or ipython notebook. 
-Import the classes in the pypanda library:
+Import the classes in the PyPuma library:
 ```python
-from pypanda.panda import Panda
-from pypanda.puma import Puma
-from pypanda.lioness import Lioness
+from PyPuma.puma import Panda
 ```
 Run the Panda or Puma algorithms, leave out motif and PPI data to use Pearson correlation network:
 ```python
@@ -150,7 +145,7 @@ panda_obj.top_network_plot(top=100, file='top_100_genes.png')
 <!--
 or
 ```python
-from pypanda.analyze_panda import AnalyzePanda
+from PyPuma.analyze_panda import AnalyzePanda
 plot = AnalyzePanda(panda_obj)
 plot.top_network_plot(top=100, file='top_100_genes.png')
 ```-->
@@ -182,6 +177,8 @@ The example gene expression data that we have available here contains gene expre
 However, if you plan to model gene regulatory networks on your own dataset, you should use your own expression data as input.
 
 ## Results
+
+TODO 
 ```
 Example Panda output:
 TF  Gene  Motif Force
