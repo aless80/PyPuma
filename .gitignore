@@ -1,0 +1,16 @@
+*.bak
+*.log
+.pyc
+dist/
+*.egg-info/
+.DS_Store
+pypanda/*.pyc
+*.pairs
+test/
+.pypirc
+build/
+dist/
+.pypirc
+test_*.txt
+pypumaenv/
+.idea/
