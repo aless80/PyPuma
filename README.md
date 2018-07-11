@@ -85,7 +85,6 @@ Complete uninstall of PyPuma:
 ```no-highlight
 (pypuma)$ deactivate	#Quit virtual environment
 rm -rf pypumaenv
-TODO: write about uninstalling the setup using --record
 ```
 
 #### Using pip 
