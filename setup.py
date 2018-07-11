@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-setup(name='PyPuma',
+setup(name='pypuma',
     version='0.2',
     description='Python implementation of PUMA.',
     url='https://github.com/aless80/PyPuma',
