@@ -4,12 +4,13 @@
 dist/
 *.egg-info/
 .DS_Store
-pypanda/*.pyc
+pypuma/*.pyc
 *.pairs
 test/
 .pypirc
 build/
 dist/
+pypuma.egg*
 .pypirc
 test_*.txt
 pypumaenv/
