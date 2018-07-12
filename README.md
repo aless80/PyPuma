@@ -122,10 +122,7 @@ To run PyPuma on toy data:
 ```
 python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -o output_puma.txt -i ./ToyData/ToyMiRList.txt
 ```
-To reconstruct a single sample Lioness Pearson correlation network:
-```
-PyPuma -e ToyData/ToyExpressionData.txt -o output_puma_pearson.txt -q output_lioness_pearson.txt
-```
+
 #### Run from python
 Fire up your python shell or ipython notebook. 
 Import the classes in the PyPuma library:
