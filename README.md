@@ -127,7 +127,7 @@ python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.
 Fire up your python shell or ipython notebook. 
 Import the classes in the PyPuma library:
 ```python
-from PyPuma.puma import Puma
+from pypuma.puma import Puma
 ```
 Run the Puma algorithm, leave out motif and PPI data to use Pearson correlation network:
 ```python
