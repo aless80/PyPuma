@@ -335,11 +335,11 @@ class Puma(object):
     def return_puma_indegree(self):
         '''Return Puma indegree.'''
         #subset_indegree = self.export_puma_results.loc[:,['gene','force']]
-        subset_indegree = self.puma_results.loc[:,['gene','force']]
+        subset_indegree = self.puma_results[:,[1,3]]    #gene,force columns
         self.puma_indegree = subset_indegree.groupby('gene').sum()
         return self.puma_indegree
     def return_puma_outdegree(self):
         '''Return Puma outdegree.'''
-        subset_outdegree = self.export_puma_results.loc[:,['tf','force']]
+        subset_outdegree = self.export_puma_results[:,[0,3]]   #tf,force columns
         self.puma_outdegree = subset_outdegree.groupby('tf').sum()
         return self.puma_outdegree

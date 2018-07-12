@@ -5,7 +5,7 @@ dist/
 *.egg-info/
 .DS_Store
 pypuma/*.pyc
-*.pairs
+*.pairs*
 test/
 .pypirc
 build/
