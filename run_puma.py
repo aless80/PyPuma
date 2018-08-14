@@ -70,7 +70,7 @@ def main(argv):
     #outdegree = puma_obj.return_panda_outdegree()
 
     if lioness_file:
-        from pypanda.lioness import Lioness
+        from pypuma.lioness import Lioness
         lioness_obj = Lioness(puma_obj)
         lioness_obj.save_lioness_results(lioness_file)
     print('All done!')

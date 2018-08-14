@@ -1,12 +1,15 @@
 *.bak
 *.log
 .pyc
+pypuma/*.pyc
+pypuma/output*
 dist/
 *.egg-info/
 .DS_Store
-pypuma/*.pyc
 *.pairs*
 test/
+lioness*/
+output*
 .pypirc
 build/
 dist/
@@ -15,3 +18,5 @@ pypuma.egg*
 test_*.txt
 pypumaenv/
 .idea/
+pypuma/__pycache__
+pypuma/__pycache__/*
