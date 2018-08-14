@@ -121,7 +121,7 @@ PyPuma can be run directly from the terminal with the following options:
 ```
 To run PyPuma on toy data:
 ```
-python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -o output_puma.txt
+python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -o output_puma.txt -i ./ToyData/ToyMiRList.txt
 
 TODO:
 python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -o output_puma.txt -i ./ToyData/ToyMiRList.txt -q output_lioness.txt
