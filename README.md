@@ -117,12 +117,21 @@ PyPuma can be run directly from the terminal with the following options:
 -o, --output output file
 -i, --mir mir data
 -r, --rm_missing
+-q, --lioness: output for Lioness single sample networks 
 ```
 To run PyPuma on toy data:
 ```
-python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -o output_puma.txt -i ./ToyData/ToyMiRList.txt
+python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -o output_puma.txt -q output_lioness.txt
+python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -o output_puma.txt -i ./ToyData/ToyMiRList.txt -q output_lioness.txt
 ```
-
+To reconstruct a single sample Lioness Pearson correlation network:
+<!--```
+pypuma -e ToyData/ToyExpressionData.txt -o output_puma_pearson.txt -q output_lioness_pearson.txt
+```-->
+```python
+python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -o output_puma.txt -q output_lioness.txt
+python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -i ToyData/ToyMiRList.txt -o test_puma.txt -q output_lioness.txt
+```
 #### Run from python
 Fire up your python shell or ipython notebook. 
 Import the classes in the PyPuma library:
@@ -140,7 +149,7 @@ puma_obj.save_puma_results('Toy_Puma.pairs.txt')
 Return a network plot:
 
 ```python
-puma_obj.top_network_plot(top=100, file='top_100_genes.png')
+puma_obj.top_network_plot(top=70, file='top_genes.png')
 ```
 <!--
 or
