@@ -20,3 +20,4 @@ pypumaenv/
 .idea/
 pypuma/__pycache__
 pypuma/__pycache__/*
+Toy_Puma.pairs.txt
