@@ -18,7 +18,7 @@ class Puma(object):
 
     Authors: cychen, davidvi, alessandromarin
     """
-    def __init__(self, expression_file, motif_file, ppi_file, mir_file, save_memory = False, save_tmp=True, remove_missing=False):
+    def __init__(self, expression_file, motif_file, ppi_file, mir_file, save_memory = False, save_tmp=True, remove_missing=False, keep_expression_matrix = False):
         # =====================================================================
         # Data loading
         # =====================================================================
@@ -127,6 +127,8 @@ class Puma(object):
                 np.save('/tmp/ppi.normalized.npy', self.ppi_matrix)
 
         # Clean up useless variables to release memory
+        if keep_expression_matrix:
+            self.expression_matrix = self.expression_data.as_matrix()
         del self.expression_data
 
         # =====================================================================
@@ -335,11 +337,11 @@ class Puma(object):
     def return_puma_indegree(self):
         '''Return Puma indegree.'''
         #subset_indegree = self.export_puma_results.loc[:,['gene','force']]
-        subset_indegree = self.puma_results[:,[1,3]]    #gene,force columns
+        subset_indegree = self.puma_results.loc[:,['gene','force']]
         self.puma_indegree = subset_indegree.groupby('gene').sum()
         return self.puma_indegree
     def return_puma_outdegree(self):
         '''Return Puma outdegree.'''
-        subset_outdegree = self.export_puma_results[:,[0,3]]   #tf,force columns
+        subset_outdegree = self.export_puma_results.loc[:,['tf','force']]
         self.puma_outdegree = subset_outdegree.groupby('tf').sum()
         return self.puma_outdegree
