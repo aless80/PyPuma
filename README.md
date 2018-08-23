@@ -141,6 +141,7 @@ Fire up your python shell or ipython notebook.
 Import the classes in the PyPuma library:
 ```python
 from pypuma.puma import Puma
+from pypuma.lioness import Lioness
 ```
 Run the Puma algorithm, leave out motif and PPI data to use Pearson correlation network:
 ```python
