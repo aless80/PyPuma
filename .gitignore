@@ -20,4 +20,6 @@ pypumaenv/
 .idea/
 pypuma/__pycache__
 pypuma/__pycache__/*
+top_genes.png
 Toy_Puma.pairs.txt
+top*genes.png

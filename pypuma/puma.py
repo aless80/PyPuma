@@ -342,6 +342,7 @@ class Puma(object):
         return self.puma_indegree
     def return_puma_outdegree(self):
         '''Return Puma outdegree.'''
-        subset_outdegree = self.export_puma_results.loc[:,['tf','force']]
+        export_puma_results_pd = pd.DataFrame(self.export_puma_results,columns=['tf','gene','motif','force'])
+        subset_outdegree = export_puma_results_pd.loc[:,['tf','force']]
         self.puma_outdegree = subset_outdegree.groupby('tf').sum()
         return self.puma_outdegree
