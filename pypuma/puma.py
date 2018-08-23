@@ -320,7 +320,7 @@ class Puma(object):
         def split_label(label):
             ll = len(label)
             if ll > 6:
-                return label[0:ll/2] + '\n' + label[ll/2:]
+                return label[0:math.ceil(ll/2)] + '\n' + label[math.ceil(ll/2):]
             return label
         for i, l in enumerate(unique_genes.iloc[:,0]):
             labels[i] = split_label(l)
