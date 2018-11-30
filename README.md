@@ -1,10 +1,11 @@
 ## Description
 Implementation of the Puma algorithm. Python code based on the Panda implementation pypanda from [https://github.com/QuackenbushLab/pypanda](https://github.com/QuackenbushLab/pypanda) and [https://github.com/davidvi/pypanda](https://github.com/davidvi/pypanda).  
 
-## TODO
+<!--## TODO
 Review formulas  
 Review Results on the bottom of this README  
 Figure
+-->
 
 ## Table of Contents
 * [Links to literature](#links-to-literature)
@@ -63,7 +64,7 @@ Hamming distance is calculated every iteration.
 
 
 ## Installation
-PyPuma runs on both Python 2.7 and Python 3.4. We recommend the following commands to install PyPuma on UNIX systems:
+PyPuma runs on Python 2.7. We recommend the following commands to install PyPuma on UNIX systems:
 #### Using  a virtual environment
 Using [python virtual environments](http://docs.python-guide.org/en/latest/dev/virtualenvs/) is the cleanest installation method. 
 
@@ -72,16 +73,19 @@ Cloning git and setting up a [python virtual environment](http://docs.python-gui
 pip install --user pipenv   #Make sure you have pipenv
 git clone https://github.com/aless80/PyPuma.git
 cd PyPuma
+```
+Creating a virtual environment and installing pypanda:
+```no-highlight
 virtualenv pypumaenv #virtual environment created in a folder inside the git folder 
 source pypumaenv/bin/activate
-```
-Installing PyPuma:
-```no-highlight
 (pypumaenv)$ pip install -r requirements.txt
 (pypumaenv)$ python setup.py install
 ```
-
-Complete uninstall of PyPuma:
+Uninstall pypanda from virtual environment:
+```no-highlight
+cat files.txt | xargs rm -rf
+```
+Complete removal of virtual environment and pypanda:
 ```no-highlight
 (pypuma)$ deactivate	#Quit virtual environment
 rm -rf pypumaenv
@@ -111,11 +115,11 @@ python setup.py install
 PyPuma can be run directly from the terminal with the following options:
 ```
 -h help
--e, --expression expression values
--m, --motif pair file of motif edges, when not provided analysis continues with Pearson correlation matrix
--p, --ppi pair file of PPI edges
--o, --output output file
--i, --mir mir data
+-e, --expression: expression values
+-m, --motif: pair file of motif edges, or Pearson correlation matrix when not provided 
+-p, --ppi: pair file of PPI edges
+-o, --output: output file
+-i, --mir: mir data miR file
 -r, --rm_missing
 -q, --lioness: output for Lioness single sample networks 
 ```
