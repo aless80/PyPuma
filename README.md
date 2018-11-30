@@ -79,7 +79,7 @@ Creating a virtual environment and installing pypanda:
 virtualenv pypumaenv #virtual environment created in a folder inside the git folder 
 source pypumaenv/bin/activate
 (pypumaenv)$ pip install -r requirements.txt
-(pypumaenv)$ python setup.py install
+(pypumaenv)$ python setup.py install --record files.txt
 ```
 Uninstall pypanda from virtual environment:
 ```no-highlight
