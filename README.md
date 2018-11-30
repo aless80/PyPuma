@@ -125,20 +125,13 @@ PyPuma can be run directly from the terminal with the following options:
 ```
 To run PyPuma on toy data:
 ```
-python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -o output_puma.txt -i ./ToyData/ToyMiRList.txt
-
-TODO:
-python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -o output_puma.txt -i ./ToyData/ToyMiRList.txt -q output_lioness.txt
+python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -i ToyData/ToyMiRList.txt -o output_puma.txt -i ./ToyData/ToyMiRList.txt -i ToyData/ToyMiRList.txt
 ```
-To reconstruct a single sample Lioness Pearson correlation network:
-<!--```
-pypuma -e ToyData/ToyExpressionData.txt -o output_puma_pearson.txt -q output_lioness_pearson.txt
-```-->
+
+To reconstruct a single sample Lioness Pearson correlation network (this can take some time):
+
 ```python
-TODO:
-python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -o output_puma.txt -q output_lioness.txt
-TODO:
-python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -i ToyData/ToyMiRList.txt -o test_puma.txt -q output_lioness.txt
+python run_puma.py -e ./ToyData/ToyExpressionData.txt -m ./ToyData/ToyMotifData.txt -p ./ToyData/ToyPPIData.txt -i ToyData/ToyMiRList.txt -o output_puma.txt -q output_lioness.txt
 ```
 #### Run from python
 Fire up your python shell or ipython notebook. 
@@ -194,28 +187,3 @@ plot.top_network_plot(column= 0, top=100, file='top_100_genes.png')
 The example gene expression data that we have available here contains gene expression profiles for different samples in the columns. Of note, this is just a small subset of a larger gene expression dataset. We provided these "toy" data so that the user can test the method. 
 
 However, if you plan to model gene regulatory networks on your own dataset, you should use your own expression data as input.
-
-## Results
-
-TODO 
-```
-Example Puma output:
-TF  Gene  Motif Force
----------------------
-CEBPA	AACSL	0.0	-0.951416589143
-CREB1	AACSL	0.0	-0.904241609324
-DDIT3	AACSL	0.0	-0.956471642313
-E2F1	AACSL	1.0	3.6853160511
-EGR1	AACSL	0.0	-0.695698519643
-
-Example lioness output:
-Sample1 Sample2 Sample3 Sample4
--------------------------------
--0.667452814003	-1.70433776179	-0.158129613892	-0.655795512803
--0.843366539284	-0.733709815256	-0.84849895139	-0.915217389738
-3.23445386464	2.68888472802	3.35809757371	3.05297381396
-2.39500370135	1.84608635425	2.80179804094	2.67540878165
--0.117475863987	0.494923925853	0.0518448588965	-0.0584810456421
-
-TF, Gene and Motif order is identical to the puma output file.
-```
